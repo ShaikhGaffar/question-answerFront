@@ -42,6 +42,7 @@ html {
   align-items: center;
   position: relative;
   animation: changeBackgroundColor 5s infinite;
+  min-height: 100vh;
 }
 
 /* .stickyhedear {

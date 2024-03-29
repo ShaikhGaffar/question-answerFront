@@ -40,8 +40,32 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  position: relative;
   animation: changeBackgroundColor 5s infinite;
+}
+
+/* .stickyhedear {
+  animation: changeBackgroundColor 5s infinite;
+} */
+
+.answer-display {
+  margin-top: 10px;
+  text-align: left;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  background-color: black;
+  color: white;
+}
+
+.question-display {
+  margin-top: 10px;
+  font-size: 20px;
+  text-align: left;
+  /* animation: changeBackgroundColor 5s infinite; */
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: bold;
 }
 
 h1 {
@@ -50,22 +74,34 @@ h1 {
 
 .form-container {
   text-align: center;
+  position: sticky;
+  top: 0;
 }
 
 #fileName {
   margin-top: 20px;
   margin-bottom: 20px;
+  font-weight: bold;
 
 }
 
 .input {
   font-size: 20px !important;
-  width: 20vw;
   margin-right: 10px;
   background: transparent;
   border: 1px solid #2980b9;
   padding: 7px 15px;
+  color: white;
   outline: none;
+  width: 70%;
+
+}
+
+#uploadForm {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  left: 0;
 }
 
 .form-container input[type="file"],
@@ -73,6 +109,8 @@ h1 {
 .form-container button {
   margin-bottom: 10px;
 }
+
+
 
 .loader {
   border: 5px solid #f3f3f3;
@@ -141,8 +179,4 @@ h1 {
 
 .file-input-container label:hover {
   background-color: #2980b9;
-}
-
-.answer-display {
-  margin-top: 20px;
 }

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import { FiUpload } from "react-icons/fi";
 import { MdContentPaste } from "react-icons/md";
+import { FaFileUpload } from "react-icons/fa";
+import { MdUploadFile } from "react-icons/md";
 
 import { MdOutlinePictureAsPdf } from "react-icons/md";
 
@@ -84,6 +86,9 @@ function DocQueryComponent() {
             setdisable(false)
         }
     }, [question])
+    useEffect(() => {
+        setDataArray([])
+    }, [file])
 
     return (
         <div className="container">
@@ -96,7 +101,7 @@ function DocQueryComponent() {
                             {/* <p style={{ fontWeight: "bold", fontSize: '16px' }}>Simply choose a file, enter your question, and click submit to get the answer!</p> */}
                             {/* </div> */}
                             <div className="file-input-container">
-                                <label className='inputhover' htmlFor="fileInput"> <span style={{ fontSize: "40px" }}><MdOutlinePictureAsPdf /></span> <span>{fileName ? ` ${fileName} ` : 'Upload File'}</span> </label>
+                                <label className='inputhover' htmlFor="fileInput"> <span style={{ fontSize: "40px" }}><MdUploadFile /></span> <span>{fileName ? ` ${fileName} ` : 'Upload File'}</span> </label>
                                 <input className='inputhover' type="file" id="fileInput" onChange={handleFileChange} />
                             </div>
 

@@ -27,18 +27,30 @@ function DocQueryComponent() {
         setFileName(selectedFile.name);
     };
     const handleCopyToChailboard = (content) => {
-        const data = content?.answer
-        navigator.clipboard.writeText(data)
-            .then(() => {
-                console.log('data copied to clipboard successfully:', data);
-                // You can add additional logic here, such as showing a success message
-            })
-            .catch((error) => {
-                console.error('Unable to copy data to clipboard:', error);
-                // You can add additional logic here, such as showing an error message
-            });
-
+        const data = content?.answer;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(data)
+                .then(() => {
+                    console.log('Data copied to clipboard successfully:', data);
+                    // You can add additional logic here, such as showing a success message
+                })
+                .catch((error) => {
+                    console.error('Unable to copy data to clipboard:', error);
+                    // You can add additional logic here, such as showing an error message
+                });
+        } else {
+            // Fallback method for copying text
+            const textArea = document.createElement('textarea');
+            textArea.value = data;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            console.log('Data copied to clipboard (fallback method):', data);
+            // You can add additional logic here, such as showing a message indicating that the text has been copied
+        }
     }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (question == '') {

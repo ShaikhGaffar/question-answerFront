@@ -63,7 +63,7 @@ function DocQueryComponent() {
         formData.append('file', file);
         formData.append('question', question);
 
-        const response = await fetch('http://invoice.onsdlc.cloud/api/query', {
+        const response = await fetch('https://invoiceqa.onsdlc.cloud/api/query', {
             method: 'POST',
             body: formData
         });
